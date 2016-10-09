@@ -1,22 +1,22 @@
 // Rolling 6 numbers
 
 var stat1 = document.getElementById("stat1");
-stat1.innerHTML = rollStat(3, 18);
+stat1.innerHTML = roll(3, 6);
 
 var stat2 = document.getElementById("stat2");
-stat2.innerHTML = rollStat(3, 18);
+stat2.innerHTML = roll(3, 6);
 
 var stat3 = document.getElementById("stat3");
-stat3.innerHTML = rollStat(3, 18);
+stat3.innerHTML = roll(3, 6);
 
 var stat4 = document.getElementById("stat4");
-stat4.innerHTML = rollStat(3, 18);
+stat4.innerHTML = roll(3, 6);
 
 var stat5 = document.getElementById("stat5");
-stat5.innerHTML = rollStat(3, 18);
+stat5.innerHTML = roll(3, 6);
 
 var stat6 = document.getElementById("stat6");
-stat6.innerHTML = rollStat(3, 18);
+stat6.innerHTML = roll(3, 6);
 
 // Setting stat value locations
 
@@ -30,8 +30,12 @@ statDex.addEventListener('dragenter', dragEnter);
 statDex.addEventListener('drop', dragDrop);
 statDex.addEventListener('dragover', dragOver);
 
-function rollStat(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+function roll(number, sides) {
+  var total;	
+  for (var i = 0; i < number i++) {
+    total += Math.floor(Math.random() * sides) + 1;
+  }
+  return total;
 }
 
 function dragStart(ev) {
