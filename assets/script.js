@@ -31,8 +31,8 @@ statDex.addEventListener('drop', dragDrop);
 statDex.addEventListener('dragover', dragOver);
 
 function roll(number, sides) {
-  var total;	
-  for (var i = 0; i < number i++) {
+  var total = 0;
+  for (var i = 0; i < number; i++) {
     total += Math.floor(Math.random() * sides) + 1;
   }
   return total;
@@ -58,7 +58,7 @@ function dragOver(ev) {
 
 function dragDrop(ev) {
   ev.target.appendChild(stat1);
-	ev.stopPropagation();
+  ev.stopPropagation();
 
   return false;
 }
