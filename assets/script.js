@@ -21,12 +21,12 @@ stat6.innerHTML = roll(3, 6);
 // Setting stat value locations
 
 var statStr = document.getElementById("statStr");
-statStr.addEventListener('dragenter', dragEnter);
+statStr.addEventListener('dragenter', dragStart);
 statStr.addEventListener('drop', dragDrop);
 statStr.addEventListener('dragover', dragOver);
 
 var statDex = document.getElementById("statDex");
-statDex.addEventListener('dragenter', dragEnter);
+statDex.addEventListener('dragenter', dragStart);
 statDex.addEventListener('drop', dragDrop);
 statDex.addEventListener('dragover', dragOver);
 
@@ -40,7 +40,7 @@ function roll(number, sides) {
 
 function dragStart(ev) {
   ev.dataTransfer.effectAllowed='move';
-  ev.dataTransfer.setData("text/html", this.innerHTML);
+  ev.dataTransfer.setData("text", event.innerHTML);
   ev.dataTransfer.setDragImage(ev.target,100,100);
 
   return true;
@@ -57,7 +57,8 @@ function dragOver(ev) {
 }
 
 function dragDrop(ev) {
-  ev.target.appendChild(stat1);
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(data);
   ev.stopPropagation();
 
   return false;
